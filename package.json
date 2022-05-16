@@ -1,0 +1,22 @@
+{
+  "name": "01-dashboard-proposal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwesomeJeong/dashboard-proposal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AwesomeJeong/dashboard-proposal/issues"
+  },
+  "homepage": "https://github.com/AwesomeJeong/dashboard-proposal#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
