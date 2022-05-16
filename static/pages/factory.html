@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/deploy.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Factory</title>
+  </head>
+  <body>
+    <main class="w-[1920px] h-[1080px] bg-cover bg-center bg-no-repeat p-10 relative" id="app" style="background-image: url('../images/factoryImage.jpg');">
+      <section class="flex h-14">
+        <div class="w-1/2 h-14 flex items-center">
+          <div
+            class="w-1/5 text-center text-3xl font-semibold text-sky-300 "
+          >
+            Logo Image
+          </div>
+          <div class="w-1/5 text-center text-3xl font-semibold text-sky-300">
+            세종
+          </div>
+      </section>
+      <section></section>
+      <section class="absolute w-72 h-56 bg-blue-900 bg-opacity-70 bottom-14 left-14 rounded-3xl p-8 flex flex-col items-center">
+        <div class="w-full text-center font-semibold text-2xl text-sky-300 mb-2">에코비트 에너지 세종</div>
+        <div class="w-full flex">
+          <div class="w-1/2 text-left text-gray-400 text-lg">· 허가용량</div>
+          <ul class="">
+            <li class="flex items-end">
+              <div class="w-12 text-white font-semibold">소각</div>
+              <div class="text-left text-sky-300">78 </div>
+              <div class="text-sm text-sky-300">ton/일</div>
+            </li>
+            <li class="flex items-end">
+              <div class="w-12 text-white font-semibold">건조</div>
+              <div class="text-left text-sky-300">250 </div>
+              <div class="text-sm text-sky-300">ton</div>
+            </li>
+            <li class="flex items-end">
+              <div class="w-12 text-white font-semibold">발전</div>
+              <div class="text-left text-sky-300">19,200</div>
+              <div class="text-sm text-sky-300">kw</div>
+            </li>
+            <li class="flex items-end">
+              <div class="w-12 text-white font-semibold">파쇄</div>
+              <div class="text-left text-sky-300">120 </div>
+              <div class="text-sm text-sky-300">ton</div>
+            </li>
+            <li class="flex items-end">
+              <div class="w-12 text-white font-semibold">건패</div>
+              <div class="text-left text-sky-300">250 </div>
+              <div class="text-sm text-sky-300">ton</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="absolute w-72 h-56 bg-blue-900 bg-opacity-80 bottom-14 right-14 rounded-3xl">
+        <div class="h-1/2 border-b border-blue-500 flex">
+          <div class="w-7/12 flex justify-center items-center">
+            <div class="text-7xl">⛅️</div>
+          </div>
+          <ul class="flex flex-col justify-center">
+            <li class="text-sm text-gray-400">2021/11/11</li>
+            <li class="text-md text-white font-semibold">세종특별자치시</li>
+            <li>
+              <span class="text-4xl text-sky-300">12</span>
+              <span class="text-lg text-sky-300 align-top">℃</span>
+            </li>
+          </ul>
+        </div>
+        <div class="grid grid-cols-3 h-1/2">
+          <div class="border-r border-blue-500 flex flex-col items-center space-y-3 pt-4">
+            <div class="text-gray-400 font-semibold text-md">현재풍속</div>
+            <div class="text-sky-300 font-semibold text-lg">0.1m/s</div>
+          </div>
+          <div class="border-r border-blue-500 flex flex-col items-center space-y-3 pt-4">
+            <div class="text-gray-400 font-semibold text-md">현재습도</div>
+            <div class="text-sky-300 font-semibold text-lg">97%</div>
+          </div>
+          <div class="flex flex-col items-center pt-4">
+            <div class="text-gray-400 font-semibold text-md">미세먼지</div>
+            <div class="text-sky-300 font-semibold text-lg">좋음</div>
+            <div class="text-sky-300 font-semibold text-lg">12μg/m³</div>
+            
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

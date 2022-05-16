@@ -516,6 +516,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.5rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -554,6 +562,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-1\/2 {
   height: 50%;
+}
+
+.h-3\/5 {
+  height: 60%;
+}
+
+.h-2\/5 {
+  height: 40%;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-\[1920px\] {
@@ -612,6 +632,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
+.w-7\/12 {
+  width: 58.333333%;
+}
+
 .grid-flow-col {
   grid-auto-flow: column;
 }
@@ -632,6 +656,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-end {
   align-items: flex-end;
 }
@@ -648,12 +676,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-between;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
 .gap-0 {
   gap: 0px;
 }
 
 .gap-12 {
   gap: 3rem;
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .rounded-full {
@@ -729,6 +767,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 0.7;
 }
 
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -781,6 +823,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -791,6 +837,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-right {
   text-align: right;
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.align-text-top {
+  vertical-align: text-top;
 }
 
 .align-text-bottom {
@@ -825,6 +883,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
 }
 
 .font-semibold {
