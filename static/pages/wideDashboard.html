@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/deploy.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Wide Dashboard</title>
   </head>
   <body>
@@ -587,19 +590,9 @@
               </div>
               <!-- chart -->
               <div class="w-64 flex space-x-2">
-                <div class="w-20 flex flex-col items-center space-y-1">
-                  <div
-                    class="w-20 aspect-square bg-yellow-500 rounded-full flex items-center justify-center"
-                  >
-                    <div
-                      class="w-5/6 aspect-square bg-slate-500 rounded-full flex items-center justify-center"
-                    >
-                      <div>
-                        <span>56</span>
-                        <span>톤</span>
-                      </div>
-                    </div>
-                  </div>
+                <div class="w-20 flex flex-col items-center space-y-1 relative">
+                  <canvas  class="RoundedDoughnut w-20 " height="100" width="100" ></canvas>
+                  <div class="top-6 absolute">57 톤</div>
                   <div class="">소각</div>
                 </div>
                 <div class="w-20 flex flex-col items-center space-y-1">
@@ -1803,5 +1796,42 @@
         </div>
       </section>
     </main>
+    <script>
+      // dummy datasets
+      const data = {
+        labels: [
+          'Red',
+          'Blue',
+          'Yellow'
+        ],
+        datasets: [{
+          data: [300, 50, 100],
+          backgroundColor: [
+            'rgb(234, 179, 8)',
+            'transparent',
+            'transparent'
+          ],
+          hoverOffset: 0
+        }]
+      };       
+      // dummy chart rendering
+      var chart = new Chart($('.RoundedDoughnut'), {
+        type: 'doughnut',           
+        data : data,
+        options: {
+          plugins: {
+            legend: {
+                display: false,
+                hidden: true
+            },
+            tooltip:{
+              enabled:false
+            }
+          },
+          borderColor:"transparent",
+          cutout: 30
+        }
+      });       
+    </script>
   </body>
 </html>
