@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/deploy.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/chart.min.js"></script>
     <script src="../js/chartjs-plugin-annotation.min.js"></script>
     
@@ -80,29 +80,35 @@
             <span>단위: kcal/kg</span>
           </div>
           <div class="h-72">
-            <canvas class="chart" width="400" height="288" ></canvas>
+            <canvas class="chart0" width="400" height="288" ></canvas>
           </div>
         </article>
-        <article class="bg-orange-400">
+        <article >
           <div class="flex justify-between text-white font-semibold">
             <span class="text-lg">투입횟수</span>
             <span>단위: 회</span>
           </div>
-          <div class="h-72">Chart Area</div>
+          <div class="h-72">
+            <canvas class="chart1" width="400" height="288" ></canvas>
+          </div>
         </article>
-        <article class="bg-orange-400">
+        <article >
           <div class="flex justify-between text-white font-semibold">
             <span class="text-lg">2차연소 출구 온도</span>
             <span>단위: ℃</span>
           </div>
-          <div class="h-72">Chart Area</div>
+          <div class="h-72">
+            <canvas class="chart2" width="400" height="288" ></canvas>
+          </div>
         </article>
-        <article class="bg-orange-400">
+        <article>
           <div class="flex justify-between text-white font-semibold">
             <span class="text-lg">저위발열량</span>
             <span>단위:kcal/kg</span>
           </div>
-          <div class="h-72">Chart Area</div>
+          <div class="h-72">
+            <canvas class="chart3" width="400" height="288" ></canvas>
+          </div>
         </article>
       </section>
     </main>
@@ -118,73 +124,92 @@
         operationStatus: false,
       },
     });
-    const labels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ];
 
-    const data = {
-      labels: labels,
-      datasets: [{
-        borderColor: 'rgb(37, 99, 235)',
-        data: [-100, 10, 5, 2, 20, 50 ],
-      }]
-    };
+    function setRandomData(){
+      let labels = [];
+      let data = {
+        labels: labels,
+        datasets: [{
+          borderColor: 'rgb(37, 99, 235)',
+          data: [],
+        }]
+      };
 
-    const config = {
-      type: 'line',
-      data: data,
-      options: {       
-        plugins: {
-          legend: {
-              display: false,
-              hidden: true
-          },
-          tooltip:{
-            // enabled:false
-          },
-          autocolors: false,
-          annotation: {
-            annotations: {
-              line1: {
-                type: 'line',
-                yMin: -5,
-                yMax: -5,
-                borderColor: 'yellow',
-                borderWidth: 2,
-              },
-              line2: {
-                type: 'line',
-                yMin: 30,
-                yMax: 30,
-                borderColor: 'red',
-                borderWidth: 2,
+      for (var i=0,nums=[];i<49;i++){
+        data.datasets[0].data.push(Math.random() * (50 + 20) - 20 );
+         labels.push("")
+        }
+      const line0 = (Math.random() * (50 + 20) - 20)
+      const line1 = (Math.random() * (50 + 20) - 20)
+      
+
+      const config = {
+        type: 'line',
+        data: data,
+        options: {       
+          plugins: {
+            legend: {
+                display: false,
+                hidden: true
+            },
+            tooltip:{
+              // enabled:false
+            },
+            autocolors: false,
+            annotation: {
+              annotations: {
+                line1: {
+                  type: 'line',
+                  yMin: line0,
+                  yMax: line0,
+                  borderColor: 'yellow',
+                  borderWidth: 2,
+                },
+                line2: {
+                  type: 'line',
+                  yMin: line1,
+                  yMax: line1,
+                  borderColor: 'red',
+                  borderWidth: 2,
+                }
               }
             }
-          }
-        },
-        scales: {
-          y: {
-            ticks: {
-              display: false,
+          },
+          scales: {
+            y: {
+              ticks: {
+                display: false,
+              },
+              grid: {
+                borderColor: 'transparent' , // <-- this line is answer to initial question
+                color:"grey"
+              }
             },
-            grid: {
-              borderColor: 'transparent' , // <-- this line is answer to initial question
-              color:"grey"
+            x:{
+              display:false,         
             }
           },
-          x:{
-            display:false,         
-          }
-        },
-        backgroundColor:"transparent",      
-      }
-    };
-    const chart = new Chart($('.chart'), config
-    );
+          backgroundColor:"transparent",      
+        }
+      };
+      return config
+    }
+    
+    const chart0 = new Chart($('.chart0'), setRandomData() );
+    const chart1 = new Chart($('.chart1'), setRandomData() );
+    const chart2 = new Chart($('.chart2'), setRandomData() );
+    const chart3 = new Chart($('.chart3'), setRandomData() );
+    function updateData(ctx){
+      ctx.data.datasets[0].data.shift()
+      ctx.data.datasets[0].data.push((Math.random() * (50 + 20) - 20))
+      ctx.update()
+    }
+    setInterval( function(){
+      updateData(chart0)
+      updateData(chart1)
+      updateData(chart2)
+      updateData(chart3)
+      
+    }, 1000 )
   </script>
 </html>
