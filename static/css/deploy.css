@@ -532,22 +532,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0px;
 }
 
-.top-5 {
-  top: 1.25rem;
-}
-
-.top-10 {
-  top: 2.5rem;
-}
-
-.top-24 {
-  top: 6rem;
-}
-
-.top-16 {
-  top: 4rem;
-}
-
 .top-6 {
   top: 1.5rem;
 }
@@ -563,11 +547,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.-my-5 {
-  margin-top: -1.25rem;
-  margin-bottom: -1.25rem;
 }
 
 .mb-2 {
