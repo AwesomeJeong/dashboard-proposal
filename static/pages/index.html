@@ -9,7 +9,7 @@
     <script src="../js/jquery.min.js"></script>
     <script src="../js/chart.min.js"></script>
     <script src="../js/chartjs-plugin-annotation.min.js"></script>
-    
+
     <title>Dashboard</title>
   </head>
   <body>
@@ -33,23 +33,21 @@
             소각 HMI / TMS
           </div>
         </div>
-        <div
-          class="w-1/2 grid grid-flow-col gap-0 items-center justify-between"
-        >
+        <div class="w-1/2 grid grid-flow-col justify-evenly items-center">
           <div
-            class="text-lg font-semibold text-sky-400 px-4 border-r border-blue-600"
+            class="text-lg font-semibold text-sky-400 border-r border-blue-600 flex justify-center"
           >
             <span class="">가동시간: </span>
             <span class="inline-block text-right">{{uptime}}</span>
           </div>
           <div
-            class="text-lg font-semibold text-green-500 px-4 border-r border-blue-600"
+            class="text-lg font-semibold text-green-500 border-r border-blue-600 flex justify-center"
           >
             <span>연속 가동시간: </span>
             <span class="inline-block text-right">{{countinuousUptime}}</span>
           </div>
           <div
-            class="text-lg font-semibold text-purple-300 px-4 border-r border-blue-600"
+            class="text-lg font-semibold text-purple-300 border-r border-blue-600 flex justify-center"
           >
             <span>소각량: </span>
             <span class="inline-block text-right"
@@ -57,14 +55,14 @@
             >
           </div>
           <div
-            class="text-lg font-semibold text-yellow-400 px-4 border-r border-blue-600"
+            class="text-lg font-semibold text-yellow-400 border-r border-blue-600 flex justify-center"
           >
             <span>소각효율: </span>
             <span class="inline-block text-right"
               >{{incinerationEfficiency}} %</span
             >
           </div>
-          <div>
+          <div class="flex items-center space-x-4 pl-4">
             <span class="text-lg font-semibold text-pink-500">가동상태: </span>
             <span
               class="rounded-full bg-pink-500 text-white font-bold text-xl px-8 py-2"
@@ -80,25 +78,25 @@
             <span>단위: kcal/kg</span>
           </div>
           <div class="h-72">
-            <canvas class="chart0" width="400" height="288" ></canvas>
+            <canvas class="chart0" width="400" height="288"></canvas>
           </div>
         </article>
-        <article >
+        <article>
           <div class="flex justify-between text-white font-semibold">
             <span class="text-lg">투입횟수</span>
             <span>단위: 회</span>
           </div>
           <div class="h-72">
-            <canvas class="chart1" width="400" height="288" ></canvas>
+            <canvas class="chart1" width="400" height="288"></canvas>
           </div>
         </article>
-        <article >
+        <article>
           <div class="flex justify-between text-white font-semibold">
             <span class="text-lg">2차연소 출구 온도</span>
             <span>단위: ℃</span>
           </div>
           <div class="h-72">
-            <canvas class="chart2" width="400" height="288" ></canvas>
+            <canvas class="chart2" width="400" height="288"></canvas>
           </div>
         </article>
         <article>
@@ -107,7 +105,7 @@
             <span>단위:kcal/kg</span>
           </div>
           <div class="h-72">
-            <canvas class="chart3" width="400" height="288" ></canvas>
+            <canvas class="chart3" width="400" height="288"></canvas>
           </div>
         </article>
       </section>
@@ -125,55 +123,56 @@
       },
     });
 
-    function setRandomData(){
+    function setRandomData() {
       let labels = [];
       let data = {
         labels: labels,
-        datasets: [{
-          borderColor: 'rgb(37, 99, 235)',
-          data: [],
-        }]
+        datasets: [
+          {
+            borderColor: "rgb(37, 99, 235)",
+            data: [],
+          },
+        ],
       };
 
-      for (var i=0,nums=[];i<49;i++){
-        data.datasets[0].data.push(Math.random() * (50 + 20) - 20 );
-         labels.push("")
-        }
-      const line0 = (Math.random() * (50 + 20) - 20)
-      const line1 = (Math.random() * (50 + 20) - 20)
-      
+      for (var i = 0, nums = []; i < 49; i++) {
+        data.datasets[0].data.push(Math.random() * (50 + 20) - 20);
+        labels.push("");
+      }
+      const line0 = Math.random() * (50 + 20) - 20;
+      const line1 = Math.random() * (50 + 20) - 20;
 
       const config = {
-        type: 'line',
+        type: "line",
         data: data,
-        options: {       
+        options: {
           plugins: {
             legend: {
-                display: false,
-                hidden: true
+              display: false,
+              hidden: true,
             },
-            tooltip:{
+            tooltip: {
               // enabled:false
             },
             autocolors: false,
             annotation: {
               annotations: {
                 line1: {
-                  type: 'line',
+                  type: "line",
                   yMin: line0,
                   yMax: line0,
-                  borderColor: 'yellow',
+                  borderColor: "yellow",
                   borderWidth: 2,
                 },
                 line2: {
-                  type: 'line',
+                  type: "line",
                   yMin: line1,
                   yMax: line1,
-                  borderColor: 'red',
+                  borderColor: "red",
                   borderWidth: 2,
-                }
-              }
-            }
+                },
+              },
+            },
           },
           scales: {
             y: {
@@ -181,28 +180,28 @@
                 display: false,
               },
               grid: {
-                borderColor: 'transparent' , // <-- this line is answer to initial question
-                color:"grey"
-              }
+                borderColor: "transparent", // <-- this line is answer to initial question
+                color: "grey",
+              },
             },
-            x:{
-              display:false,         
-            }
+            x: {
+              display: false,
+            },
           },
-          backgroundColor:"transparent",      
-        }
+          backgroundColor: "transparent",
+        },
       };
-      return config
+      return config;
     }
-    
-    const chart0 = new Chart($('.chart0'), setRandomData() );
-    const chart1 = new Chart($('.chart1'), setRandomData() );
-    const chart2 = new Chart($('.chart2'), setRandomData() );
-    const chart3 = new Chart($('.chart3'), setRandomData() );
-    function updateData(ctx){
-      ctx.data.datasets[0].data.shift()
-      ctx.data.datasets[0].data.push((Math.random() * (50 + 20) - 20))
-      ctx.update()
+
+    const chart0 = new Chart($(".chart0"), setRandomData());
+    const chart1 = new Chart($(".chart1"), setRandomData());
+    const chart2 = new Chart($(".chart2"), setRandomData());
+    const chart3 = new Chart($(".chart3"), setRandomData());
+    function updateData(ctx) {
+      ctx.data.datasets[0].data.shift();
+      ctx.data.datasets[0].data.push(Math.random() * (50 + 20) - 20);
+      ctx.update();
     }
     setInterval( function(){
       updateData(chart0)
